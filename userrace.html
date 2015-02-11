@@ -1,0 +1,34 @@
+<!doctype html>
+  <head>
+    <title>Race the Rabbit</title>
+  </head>
+  <script>
+    var Racer = function(s, f, n) {
+      this.speed = s;
+      this.focus = f;
+      this.name = n;
+      this.position = 0;
+      this.report = function() {
+        return this.name + " is at " + this.position;
+      };
+      this.run = function() {
+        if(this.focus >= (Math.random() * 10)) {
+          this.position += this.speed;
+        }  
+      };
+    }
+ 
+    var user = new Racer(Number(prompt("Please enter your speed 1-10", "5")),Number(prompt("Please enter your focus level 1-10", "5")),prompt("Please enter your name", "Racer")),
+        rabbit = new Animal(5,3,"Peter");
+ 
+    var distance = 100;
+ 
+    while(user.position < distance && rabbit.position < distance) {
+      user.run();
+      rabbit.run();
+    };
+
+    console.log(rabbit.report());
+    console.log(user.report());
+  </script>
+</html>
